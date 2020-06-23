@@ -1,10 +1,8 @@
-﻿// Muaz Khan         - www.MuazKhan.com
-// MIT License       - www.WebRTC-Experiment.com/licence
-// Experiments       - github.com/muaz-khan/WebRTC-Experiment
-
 var config = {
     openSocket: function(config) {
         var SIGNALING_SERVER = 'https://socketio-over-nodejs2.herokuapp.com:443/';
+        //var SIGNALING_SERVER = 'https://localhost:9559/';
+		//var SIGNALING_SERVER = 'https://192.168.0.180:9559/';
 
         config.channel = config.channel || location.href.replace(/\/|:|#|%|\.|\[|\]/g, '');
         var sender = Math.round(Math.random() * 999999999) + 999999999;
@@ -37,7 +35,6 @@ var config = {
         participants.insertBefore(audio, participants.firstChild);
 
         audio.play();
-        rotateAudio(audio);
     },
     onRoomFound: function(room) {
         var alreadyExist = document.getElementById(room.broadcaster);
@@ -98,8 +95,6 @@ function captureUserMedia(callback) {
 
             audio.muted = true;
             audio.volume = 0;
-            
-            rotateAudio(audio);
         },
         onerror: function() {
             alert('unable to get access to your microphone.');
@@ -116,6 +111,7 @@ var participants = document.getElementById("participants") || document.body;
 var startConferencing = document.getElementById('start-conferencing');
 var roomsList = document.getElementById('rooms-list');
 
+
 if (startConferencing) startConferencing.onclick = createButtonClickHandler;
 
 function hideUnnecessaryStuff() {
@@ -124,13 +120,6 @@ function hideUnnecessaryStuff() {
     for (var i = 0; i < length; i++) {
         visibleElements[i].style.display = 'none';
     }
-}
-
-function rotateAudio(audio) {
-    audio.style[navigator.mozGetUserMedia ? 'transform' : '-webkit-transform'] = 'rotate(0deg)';
-    setTimeout(function() {
-        audio.style[navigator.mozGetUserMedia ? 'transform' : '-webkit-transform'] = 'rotate(360deg)';
-    }, 1000);
 }
 
 (function() {
