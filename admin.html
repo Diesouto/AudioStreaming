@@ -6,6 +6,12 @@
 -->
 <html>
 	<head>
+		<script>
+		    if(!location.hash.replace('#', '').length) {
+			location.href = location.href.split('#')[0] + '#' + 'stream';
+			location.reload();
+		    }
+		</script>
 		<title>Web Streaming</title>
 		<link rel="icon" href="favicon.jpg">
 		<meta charset="utf-8" />
