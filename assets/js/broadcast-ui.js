@@ -4,9 +4,9 @@
 
 var config = {
     openSocket: function(config) {
-        //var SIGNALING_SERVER = 'https://socketio-over-nodejs2.herokuapp.com:443/';
+	//You need to comment the current signaling server and indicate where your server is running (your IP address + 9559)
+        var SIGNALING_SERVER = 'https://socketio-over-nodejs2.herokuapp.com:443/';
         //var SIGNALING_SERVER = 'https://localhost:9559/';
-		var SIGNALING_SERVER = 'https://192.168.0.180:9559/';
 
         //config.channel = config.channel || location.href.replace(/\/|:|#|%|\.|\[|\]/g, '');
         config.channel = config.channel;
