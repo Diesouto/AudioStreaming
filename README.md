@@ -1,4 +1,4 @@
-# Diesouto.github.io
+# AudioStreaming
 Web radio that lets user create audio channels and stream through their browser.
 
 Use: create a new broadcast channel in the admin page and share the join link below to your listeners.
